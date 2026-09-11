@@ -1,25 +1,29 @@
 public class Comida1 {
+
     private String nombre;
-    private int tiempoCalentamiento; // Tiempo en segundos
-    private int tiempoRestante; // Tiempo restante en segundos
-    private boolean estaCalentando; // Indica si la comida está siendo calentada
-    private boolean estaCaliente; // Indica si la comida está caliente
-    private boolean estaCancelada; // Indica si la comida ha sido cancelada
-    private boolean estaPausada; // Indica si la comida ha sido parada
+    private int tiempoCalentamiento;
+    private int tiempoRestante;
+
+    private boolean estaCalentando;
+    private boolean estaCaliente;
+    private boolean estaCancelada;
+    private boolean estaPausada;
 
     public Comida1(String nombre, int tiempoCalentamiento) {
+
         this.nombre = nombre;
         this.tiempoCalentamiento = tiempoCalentamiento;
         this.tiempoRestante = tiempoCalentamiento;
+
         this.estaCalentando = false;
         this.estaCaliente = false;
         this.estaCancelada = false;
         this.estaPausada = false;
     }
 
-    //getters
+    // Getters
 
-public String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -34,16 +38,35 @@ public String getNombre() {
     public boolean isEstaCalentando() {
         return estaCalentando;
     }
-
     public boolean isEstaCaliente() {
         return estaCaliente;
     }
-
     public boolean isEstaCancelada() {
         return estaCancelada;
     }
-
     public boolean isEstaPausada() {
         return estaPausada;
+    }
+
+    // Métodos para cambiar el estado
+
+    public void comenzarCalentamiento() {
+        estaCalentando = true;
+        estaPausada = false;
+    }
+    public void pausarCalentamiento() {
+        estaCalentando = false;
+        estaPausada = true;
+    }
+    public void cancelarCalentamiento() {
+        estaCalentando = false;
+        estaCancelada = true;
+    }
+    public void calentar() {
+        estaCalentando = false;
+        estaCaliente = true;
+    }
+    public void agregarTiempo(int tiempo) {
+        tiempoRestante += tiempo;
     }
 }
